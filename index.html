@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kasey ❤️</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+<style>
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1e1e2f, #ff758c);
+    color: white;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+section {
+    display: none;
+    padding: 50px 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3em;
+}
+
+button {
+    padding: 15px 35px;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    margin: 20px;
+    transition: 0.3s;
+}
+
+.primary {
+    background-color: #ff4d6d;
+    color: white;
+}
+
+.secondary {
+    background-color: white;
+    color: #ff4d6d;
+    position: absolute;
+}
+
+.gallery img {
+    width: 250px;
+    margin: 15px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    opacity: 0;
+    animation: fadeIn 2s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+.heart {
+    position: fixed;
+    font-size: 20px;
+    animation: floatUp 4s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+.typewriter {
+    max-width: 600px;
+    margin: auto;
+    font-size: 1.3em;
+    line-height: 1.6em;
+}
+
+input {
+    padding: 10px;
+    border-radius: 20px;
+    border: none;
+    margin-top: 20px;
+}
+
+</style>
+</head>
+<body>
+
+<!-- PASSWORD SECTION -->
+<section id="passwordSection" style="display:block;">
+    <h1>Private Access Only 💌</h1>
+    <p>Only Kasey may enter.</p>
+    <p><i>Hint: Where did we escape to in our tiny cabin?</i></p>
+    <input type="password" id="passwordInput" placeholder="Enter password">
+    <br>
+    <button class="primary" onclick="checkPassword()">Enter</button>
+</section>
+
+<!-- INTRO -->
+<section id="intro">
+    <h1>Kasey ❤️</h1>
+    <p>You are my favorite adventure.</p>
+    <button class="primary" onclick="showGallery()">Begin Our Story</button>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+    <h1>Travel Memories</h1>
+    <div class="gallery">
+        <img src="photo1.jpeg">
+        <img src="photo2.jpeg">
+        <img src="photo3.jpeg">
+    </div>
+    <p>Tiny cabin. Charlotte Exploration.</p>
+    <p>Mountains, beach, and you.</p>
+    <p>My favorite getaway isn’t a place… it’s when I’m with.</p>
+    <button class="primary" onclick="showLetter()">Continue</button>
+</section>
+
+<!-- LOVE LETTER -->
+<section id="letter">
+    <div class="typewriter" id="typewriter"></div>
+    <button class="primary" id="continueBtn" style="display:none;" onclick="showQuestion()">One More Thing...</button>
+</section>
+
+<!-- QUESTION -->
+<section id="question">
+    <h1>Kasey…</h1>
+    <h1>Will you be my Valentine? 💘</h1>
+    <button class="primary" onclick="sayYes()">YES ❤️</button>
+    <button class="secondary" id="noBtn" onmouseover="moveButton()">No 🙃</button>
+</section>
+
+<script>
+
+function checkPassword() {
+    const input = document.getElementById("passwordInput").value.toLowerCase();
+    if(input === "asheville") {
+        document.getElementById("passwordSection").style.display = "none";
+        document.getElementById("intro").style.display = "block";
+    } else {
+        alert("Hmm… try again ❤️");
+    }
+}
+
+function showGallery() {
+    document.getElementById("intro").style.display = "none";
+    document.getElementById("gallery").style.display = "block";
+}
+
+function showLetter() {
+    document.getElementById("gallery").style.display = "none";
+    document.getElementById("letter").style.display = "block";
+    typeWriter();
+}
+
+function showQuestion() {
+    document.getElementById("letter").style.display = "none";
+    document.getElementById("question").style.display = "block";
+}
+
+function moveButton() {
+    const btn = document.getElementById("noBtn");
+    btn.style.left = Math.random() * window.innerWidth + "px";
+    btn.style.top = Math.random() * window.innerHeight + "px";
+}
+
+function sayYes() {
+    document.body.innerHTML = `
+        <div style="margin-top:120px; padding:20px;">
+            <h1 style="font-size:3em;">Best decision ever ❤️</h1>
+
+            <p style="font-size:1.5em; max-width:650px; margin:auto; margin-top:30px;">
+                I love you, Kasey.
+            </p>
+
+            <p style="font-size:1.4em; max-width:650px; margin:auto; margin-top:20px;">
+                And I hope you're ready...
+            </p>
+
+            <p style="font-size:2em; margin-top:40px; font-weight:bold;">
+                Because our next adventure starts very soon.
+            </p>
+
+            <div style="margin-top:50px;">
+                <img src="map.png" 
+                     style="width:80%; max-width:700px; border-radius:20px; box-shadow:0 15px 40px rgba(0,0,0,0.4);">
+            </div>
+
+            <p style="font-size:1.4em; max-width:700px; margin:auto; margin-top:30px;">
+                Somewhere in this circle...
+            </p>
+
+            <p style="font-size:1.8em; font-weight:bold; margin-top:10px;">
+                is our next weekend away. ✈️🏔️
+            </p>
+
+            <p style="font-size:1.3em; max-width:650px; margin:auto; margin-top:25px;">
+                Just you and me.
+                New memories.
+                A new place to explore.
+            </p>
+
+            <p style="margin-top:30px; font-size:1.3em;">
+                I can't wait to keep choosing you —
+                for every adventure ahead. ❤️
+            </p>
+        </div>
+    `;
+
+    for (let i = 0; i < 100; i++) {
+        let heart = document.createElement("div");
+        heart.className = "heart";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.animationDuration = (Math.random() * 3 + 2) + "s";
+        heart.innerHTML = "❤️";
+        document.body.appendChild(heart);
+    }
+}
+
+const text = `I love traveling with you.
+I love building memories with you.
+I love that even doing nothing feels special.
+
+So I have one important question...`;
+
+let i = 0;
+function typeWriter() {
+    if (i < text.length) {
+        document.getElementById("typewriter").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeWriter, 40);
+    } else {
+        document.getElementById("continueBtn").style.display = "inline-block";
+    }
+}
+
+</script>
+
+</body>
+</html>
